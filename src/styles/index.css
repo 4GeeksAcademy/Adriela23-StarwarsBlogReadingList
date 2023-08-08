@@ -1,3 +1,17 @@
 /* 
     General Styles
 */
+body {
+    background-color: black;
+}
+
+.navbar-style {
+    background-color: black;
+}
+
+.footer-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+  }
