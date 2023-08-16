@@ -9,6 +9,9 @@ export const Home = () => {
 
 	return (
 		<div className="container">
+			<div className="text-white">
+				<h1>Characters</h1>
+			</div>
 			<div className="d-flex flex-row flex-nowrap overflow-auto">
 				{store.characters.map((character) => {
 					return (
@@ -16,12 +19,18 @@ export const Home = () => {
 					);
 				})}
 			</div>
+			<div className="text-white">
+				<h1>Planets</h1>
+			</div>
 			<div className="d-flex flex-row flex-nowrap overflow-auto">
 				{store.planets.map((planet) => {
 					return (
 						<Card key={planet.name} item={planet} type="planets" />
 					);
 				})}
+			</div>
+			<div className="text-white">
+				<h1>Vehicles</h1>
 			</div>
 			<div className="d-flex flex-row flex-nowrap overflow-auto">
 				{store.vehicles.map((vehicle) => {

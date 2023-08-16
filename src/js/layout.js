@@ -28,13 +28,9 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						{/* <Route path="/characters" element={<Characters/>} />
-						<Route path="/planets" element={<Planets/>} />
-						<Route path="/vehicles" element={<Vehicles/>} /> */}
 						<Route path="/:type/:uid" element={<Single/>} />
 
-						{/* importa en componente card */}
-						{/* <Route path="/card/:idCard" element={<Card/>}/> */}
+						
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					{/* <Footer /> */}

@@ -26,17 +26,30 @@ export const Navbar = () => {
 
 				<div className="col text-center">
 					<a className="navbar-brand text-light" href="">
-						<img src="https://yt3.googleusercontent.com/NLJIsq7K-Qr7AMpHkLstcm9F_ZQzel_CYngyfJvAuBoOzyICVBlpXZzmGlMFqhD1PoV1bJwoxyk=s900-c-k-c0x00ffffff-no-rj" 
-						style={{width : "120px"}}/> 
+						<img src="https://yt3.googleusercontent.com/NLJIsq7K-Qr7AMpHkLstcm9F_ZQzel_CYngyfJvAuBoOzyICVBlpXZzmGlMFqhD1PoV1bJwoxyk=s900-c-k-c0x00ffffff-no-rj"
+							style={{ width: "120px" }} />
 					</a>
 				</div>
+
+
 
 				<div className="col-auto">
 					<div className="d-flex" role="search">
 						<button className="btn text-light" type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
 						<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-						<a className="nav-link text-light" href="#">Disney+</a>
+						<div>
+							<button class="btn btn-outline-warning dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Favorites
+							</button>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><a class="dropdown-item" href="#">Something else here</a></li>
+							</ul>
+						</div>
 					</div>
+
+
 				</div>
 
 			</div>

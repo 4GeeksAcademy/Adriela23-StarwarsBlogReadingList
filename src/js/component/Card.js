@@ -5,10 +5,6 @@ import tatooine from "../../img/tatooine.webp";
 
 export const Card = ({ item, type}) => {
 
-
-
-
-
     return (
         <>
             <div className="card mt-3 mb-3" style={{ minWidth: "300px" }}>
