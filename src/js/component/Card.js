@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import tatooine from "../../img/tatooine.webp";
+import { Context } from "../store/appContext";
 
 export const Card = ({ item, type}) => {
-
+const {store, actions}= useContext(Context)
     return (
         <>
             <div className="card mt-3 mb-3" style={{ minWidth: "300px" }}>
@@ -19,7 +20,15 @@ export const Card = ({ item, type}) => {
                         <button className="btn btn-outline-warning"> Read more
                         </button>
                     </Link>
-                    <button className="btn btn-outline-warning"><i className="fa-solid fa-heart"></i>
+                    <button className="btn btn-outline-warning" onClick={() => {
+                        if (store.favorites.find((favorite) => favorite.favoriteName === item.name)){
+                        //  aqui va el metodo para remover
+                        actions.removeFavorite(item.name)
+                        }else{
+                            actions.addFavorite(item.name, `/${type}/${item.uid}`)
+                        }
+
+                    }}><i className={store.favorites.find((favorite) => favorite.favoriteName === item.name) ? "fa-solid fa-heart" : "fa-regular fa-heart"}></i>
                     </button>
 
                 </div>

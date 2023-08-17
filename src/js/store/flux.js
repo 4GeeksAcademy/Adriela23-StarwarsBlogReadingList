@@ -22,7 +22,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			vehicles: [
 
 			],
-			itemDetails:{}
+			itemDetails:{},
+			favorites: [
+
+			]
 		},
 		actions: {
 			// // Use getActions to call a function within a fuction
@@ -71,6 +74,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => setStore({itemDetails: data.result}))
 					.catch(error => console.log(error));
+			},
+
+			addFavorite: (name, url) =>{
+				const favoritesList = [...getStore().favorites, {favoriteName: name, favoriteUrl: url}];
+				setStore({favorites: favoritesList})
+			},
+
+			removeFavorite: (name) =>{
+				const favoritesList = getStore().favorites.filter((favorite) => favorite.favoriteName !== name);
+				setStore({favorites: favoritesList})
 			}
 		}
 	};

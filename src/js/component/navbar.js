@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+
 
 export const Navbar = () => {
+	const {store, actions}= useContext(Context)
 	return (
 		<nav className="navbar navbar-expand-lg navbar-style justify-content-center">
 			<div className="row align-items-center">
@@ -33,8 +36,8 @@ export const Navbar = () => {
 
 
 
-				<div className="col-auto">
-					<div className="d-flex" role="search">
+				<div className="">
+					<div className="d-flex align-items-center" role="search">
 						<button className="btn text-light" type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
 						<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
 						<div>
@@ -42,9 +45,15 @@ export const Navbar = () => {
 								Favorites
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><a class="dropdown-item" href="#">Something else here</a></li>
+								{store.favorites.map((favorite) => {
+									return(
+										<li className="d-flex align-items-center" key={favorite.favoriteName}>
+											<Link class="dropdown-item" to={favorite.favoriteUrl}>{favorite.favoriteName}</Link>
+											<i className="fa-solid fa-trash" onClick={() => {actions.removeFavorite(favorite.favoriteName)}}></i>
+										</li>
+									)
+								})}
+								
 							</ul>
 						</div>
 					</div>
